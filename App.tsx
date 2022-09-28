@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { StatusBar } from 'expo-status-bar'
+import { GestureHandlerRootView} from 'react-native-gesture-handler'
 
 import { useFonts, DMSans_400Regular} from '@expo-google-fonts/dm-sans';
 import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display';
@@ -22,12 +23,14 @@ export default function App() {
   })
 
   return (
+    <GestureHandlerRootView style={{flex:1}}>
     <ThemeProvider theme={theme}>
       <StatusBar style="light" translucent backgroundColor='transparent' />
       <AuthProvider>
       { fontsLoaded ? <SignIn /> : <Loading /> }
       </AuthProvider>
     </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 

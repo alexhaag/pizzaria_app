@@ -19,13 +19,13 @@ import {
 } from './styles'
 
 export function SignIn() {
+    const { signIn, isLogging } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { signIn, isLogging } = useAuth();
 
     function handleSignIn() {
-        signIn(email, password)
+       signIn(email, password)
     }
 
     return(
